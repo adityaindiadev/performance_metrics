@@ -1,0 +1,49 @@
+{
+  "name": "performance_metrics",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "npx react-native run-android",
+    "ios": "react-native run-ios",
+    "lint": "eslint .",
+    "start": "react-native start",
+    "androidRelease": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "removeAndroidDrwable": "rm -rf ./android/app/src/main/res/drawable-*",
+    "removeAndroidRaw": "rm -rf ./android/app/src/main/res/raw",
+    "AndroidBuild": "cd android && ./gradlew clean && ./gradlew assembleRelease",
+    "AndroidBundleRelease": "cd android && ./gradlew clean && ./gradlew bundleRelease",
+    "gradleClean": "cd android && ./gradlew clean && cd ..",
+    "exeAllAndroid": "npm run gradleClean && npm run androidRelease && npm run removeAndroidDrwable && npm run removeAndroidRaw && npm run AndroidBuild",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.17",
+    "react": "18.3.1",
+    "react-native": "0.75.2",
+    "react-native-safe-area-context": "^4.14.0",
+    "react-native-screens": "^4.3.0",
+    "@react-native-async-storage/async-storage": "^1.23.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/runtime": "^7.20.0",
+    "@react-native/babel-preset": "0.75.2",
+    "@react-native/eslint-config": "0.75.2",
+    "@react-native/metro-config": "0.75.2",
+    "@react-native/typescript-config": "0.75.2",
+    "@types/react": "^18.2.6",
+    "@types/react-test-renderer": "^18.0.0",
+    "babel-jest": "^29.6.3",
+    "eslint": "^8.19.0",
+    "jest": "^29.6.3",
+    "prettier": "2.8.8",
+    "react-test-renderer": "18.3.1",
+    "typescript": "5.0.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@3.6.4"
+}
